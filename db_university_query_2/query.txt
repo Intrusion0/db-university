@@ -93,7 +93,7 @@ JOIN
 	
 	Come BONUS ho ordinato gli insegnati in ordine alfabetico per cognome e nome
 
-	- SELECT departments.name AS "department name", teachers.*
+	- SELECT DISTINCT departments.name AS "department name", teachers.*
 	  FROM teachers
 	  JOIN course_teacher
     		  ON teachers.id = course_teacher.teacher_id
@@ -111,5 +111,5 @@ JOIN
 superare ciascuno dei suoi esami
 
 
-	-
+	- 
 
