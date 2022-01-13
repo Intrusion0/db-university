@@ -110,6 +110,17 @@ JOIN
 7. BONUS: Selezionare per ogni studente quanti tentativi d'esame ha sostenuto per
 superare ciascuno dei suoi esami
 
+	
+	Im questo modo stampo a schermo gli studenti che hanno avuto un voto maggiore uguale a 18, quindi hanno superato l'esame.	
 
-	- 
+	- SELECT students.name, students.surname, exam_student.vote, courses.name AS "course name", COUNT(*) AS "tentativi superamento esame"
+	  FROM students
+	  JOIN exam_student
+    		  ON students.id = exam_student.student_id
+	  JOIN exams
+    		  ON exam_student.exam_id = exams.id
+	  JOIN courses
+    		  ON exams.course_id = courses.id
+	  GROUP BY students.name, students.surname, courses.name, exam_student.vote
+	  HAVING exam_student.vote >= 18
 
